@@ -181,7 +181,30 @@ changing orchestration state.
 	e) Add admin UI after single-call inbound/outbound flows and compliance gates are
 	   validated.
 
-7) Verification Commands
+7) Active Goals
+	a) Keep the repository agent-ready by maintaining `.AGENT/` files as durable
+	   orchestration state, not just passive documentation.
+	b) Turn the current architecture plan into an implementation-ready skeleton with clear
+	   folders, service contracts, and verification commands before writing runtime code.
+	c) Preserve the safe Asterisk direction: use Stunt Banana as a minimalist configuration
+	   reference, keep ARI private, and exclude caller-ID spoofing/DISA behavior.
+	d) Prepare for an OCI-hosted Asterisk + voice bridge stack that can make and receive
+	   calls through assigned SIP-provider numbers and route media to Gemini Live.
+	e) Prepare OpenClaw integration around explicit tools and skills for call control,
+	   scripts, decision trees, and compliance-aware robocalling workflows.
+
+8) Subtask Progress Logging
+	a) Update `.AGENT/agent-action-log.md` when completing meaningful subtasks, not only at
+	   final handoff.
+	b) For multi-step work, add or update an action-log entry as each completed subtask
+	   changes repository state, resolves a blocker, establishes a decision, or completes
+	   verification.
+	c) Keep in-progress verification marked as pending only while work is actively ongoing;
+	   replace it with exact commands or manual checks before committing.
+	d) If goals change, update this Active Goals section and record the prompt/goals change
+	   in `.AGENT/agent-action-log.md`.
+
+9) Verification Commands
 	a) Run `.AGENT` smoke validation after changing agent support files:
 
 	   ```sh

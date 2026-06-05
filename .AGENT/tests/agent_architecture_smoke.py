@@ -163,6 +163,8 @@ def main() -> int:
         "OCI",
         "Stunt Banana",
         "Orchestration Roles",
+        "Active Goals",
+        "Subtask Progress Logging",
     ]:
         assert_true(expected in agent_prompt, f"agent.md missing expected text: {expected}")
 

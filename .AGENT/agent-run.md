@@ -28,14 +28,22 @@ repository. Agents should read this file at the start of each run after reading
 	b) Re-read `.AGENT/agent.md` after changing prompt instructions.
 	c) Log prompt, runbook, and run-once changes in `.AGENT/agent-action-log.md`.
 
-4) Branch Synchronization
+4) Subtask Progress Logging
+	a) Before substantial work, identify the current subtask scope in the action log or in
+	   an existing in-progress log entry when the work changes repository state.
+	b) As each meaningful subtask completes, update `.AGENT/agent-action-log.md` with what
+	   changed, what was learned, and any verification already run.
+	c) Before committing, ensure pending verification notes are replaced with exact commands,
+	   manual checks, or explicit skipped-verification rationale.
+
+5) Branch Synchronization
 	a) Use feature branches for review, concurrent work, or changes that may conflict.
 	b) Avoid creating competing edits to `.AGENT/agent-run-once.md`; consume one-shot items
 	   carefully and preserve other agents' pending work.
 	c) When `.AGENT/` files change, commit and push those changes with the rest of the
 	   logical task so future agents can read the updated orchestration state.
 
-5) Architecture Guardrails
+6) Architecture Guardrails
 	a) Keep OCI, Asterisk, voice bridge, OpenClaw, admin UI, and compliance concerns
 	   separated in docs and code.
 	b) Prefer explicit service contracts over implicit coupling between agent prompts and

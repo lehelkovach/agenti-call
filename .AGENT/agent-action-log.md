@@ -4,6 +4,29 @@ Append meaningful agent activity here in reverse chronological order. Keep entri
 and factual so future agents and maintainers can understand what changed, how it was
 verified, and what remains.
 
+## 2026-06-05 - Persist active goals and subtask logging policy
+
+1) Timestamp
+	a) 2026-06-05 19:26 UTC
+2) Agent
+	a) Cursor cloud coding agent
+3) Role
+	a) Master repo agent
+4) Branch
+	a) cursor/stuntbanana-asterisk-integration-7e1f
+5) Scope
+	a) `.AGENT/agent.md`, `.AGENT/agent-run.md`, and action log
+6) Actions
+	a) Added active goals to the repository-specific agent prompt.
+	b) Added standing instructions to update `.AGENT/agent-action-log.md` as meaningful
+	   subtasks complete, not only at final handoff.
+	c) Updated the recurring runbook with subtask progress logging expectations.
+7) Verification
+	a) Ran `python3 .AGENT/tests/agent_architecture_smoke.py` and `git diff --check`;
+	   smoke test passed and refreshed `.AGENT/test-output/cursor-agent-smoke.md`.
+8) Follow-ups
+	a) Continue updating this log as future implementation subtasks complete.
+
 ## 2026-06-05 - Import agent repo boilerplate for agenti-call orchestration
 
 1) Timestamp
