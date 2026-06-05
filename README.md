@@ -34,3 +34,24 @@ numbers from the SIP provider.
 
 See [docs/stuntbanana-integration.md](docs/stuntbanana-integration.md) for the
 integration plan and required Asterisk changes.
+
+## Agent orchestration
+
+This repo imports the `.AGENT/` operating surface from
+[`lehelkovach/agent-repo-boilerplate`](https://github.com/lehelkovach/agent-repo-boilerplate)
+and customizes it for agenti-call.
+
+Agents should start by reading:
+
+- `.AGENT/agent.md` for the live prompt and repo-specific orchestration rules;
+- `.AGENT/agent-run.md` for recurring startup checks;
+- `.AGENT/agent-run-once.md` for one-time queued work;
+- `.AGENT/agent-action-log.md` for prior agent activity and handoffs;
+- `.AGENT/dev-notes.md` for service lanes, expected secret names, and open
+  orchestration decisions.
+
+Validate agent support files with:
+
+```sh
+python3 .AGENT/tests/agent_architecture_smoke.py
+```
