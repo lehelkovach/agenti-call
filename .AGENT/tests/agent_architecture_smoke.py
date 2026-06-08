@@ -16,6 +16,7 @@ TRANSCRIPT = AGENT_DIR / "test-output" / "cursor-agent-smoke.md"
 REQUIRED = [
     "README.md",
     "docs/stuntbanana-integration.md",
+    "docs/voice-generation-and-dtmf.md",
     ".AGENT/agent.md",
     ".AGENT/agent-action-log.md",
     ".AGENT/agent-run.md",
@@ -165,6 +166,8 @@ def main() -> int:
         "Orchestration Roles",
         "Active Goals",
         "Subtask Progress Logging",
+        "ElevenLabs",
+        "DTMF",
     ]:
         assert_true(expected in agent_prompt, f"agent.md missing expected text: {expected}")
 
@@ -173,9 +176,23 @@ def main() -> int:
         "OCI_TENANCY_OCID",
         "ASTERISK_ARI_USER",
         "GEMINI_API_KEY",
+        "ELEVENLABS_DEFAULT_VOICE_ID",
         "OpenClaw Integration Agent",
+        "DTMF",
     ]:
         assert_true(expected in dev_notes, f"dev-notes.md missing expected text: {expected}")
+
+    voice_doc = read(ROOT / "docs" / "voice-generation-and-dtmf.md")
+    for expected in [
+        "ElevenLabs",
+        "send_dtmf",
+        "RFC 4733",
+        "Structured agent output contract",
+    ]:
+        assert_true(
+            expected in voice_doc,
+            f"voice-generation-and-dtmf.md missing expected text: {expected}",
+        )
 
     with tempfile.TemporaryDirectory(prefix="agenti-call-agent-smoke-") as tmp:
         subrepo = Path(tmp) / "sample-sub-repo"

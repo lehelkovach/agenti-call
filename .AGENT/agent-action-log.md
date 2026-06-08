@@ -4,6 +4,33 @@ Append meaningful agent activity here in reverse chronological order. Keep entri
 and factual so future agents and maintainers can understand what changed, how it was
 verified, and what remains.
 
+## 2026-06-08 - Add ElevenLabs voice and DTMF design requirement
+
+1) Timestamp
+	a) 2026-06-08 20:17 UTC
+2) Agent
+	a) Cursor cloud coding agent
+3) Role
+	a) Master repo agent
+4) Branch
+	a) cursor/stuntbanana-asterisk-integration-7e1f
+5) Scope
+	a) Voice generation, DTMF/keypad dialing design, README, docs, and `.AGENT/`
+6) Actions
+	a) Capturing the maintainer request to consider ElevenLabs API voice generation and
+	   dialpad/DTMF tone generation from agent output.
+	b) Added `docs/voice-generation-and-dtmf.md` with provider-neutral voice generation,
+	   ElevenLabs TTS, structured `send_dtmf`, DTMF validation, and Asterisk signaling
+	   guidance.
+	c) Updated README, `.AGENT/agent.md`, `.AGENT/dev-notes.md`, and smoke-test assertions
+	   so future agents preserve the ElevenLabs/DTMF requirements.
+7) Verification
+	a) Ran `python3 .AGENT/tests/agent_architecture_smoke.py` and `git diff --check`;
+	   smoke test passed and refreshed `.AGENT/test-output/cursor-agent-smoke.md`.
+8) Follow-ups
+	a) Confirm exact phrase intent if "bush generation" or "dial bushing" meant a different
+	   feature than voice generation and DTMF keypad dialing.
+
 ## 2026-06-05 - Persist active goals and subtask logging policy
 
 1) Timestamp

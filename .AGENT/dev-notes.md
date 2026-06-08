@@ -61,9 +61,11 @@ without inventing values:
 3) Voice/Agent Services
 	a) `GEMINI_API_KEY`
 	b) `ELEVENLABS_API_KEY`
-	c) `OPENCLAW_GATEWAY_TOKEN`
-	d) `DATABASE_URL`
-	e) `ADMIN_SESSION_SECRET`
+	c) `ELEVENLABS_DEFAULT_VOICE_ID`
+	d) `ELEVENLABS_MODEL_ID`
+	e) `OPENCLAW_GATEWAY_TOKEN`
+	f) `DATABASE_URL`
+	g) `ADMIN_SESSION_SECRET`
 
 ## Orchestration Lanes
 
@@ -81,7 +83,8 @@ without inventing values:
 
 4) Voice Bridge Agent
 	a) Owns ARI call lifecycle, ExternalMedia/AudioSocket, audio conversion, VAD/barge-in,
-	   Gemini Live sessions, and telemetry.
+	   Gemini Live sessions, ElevenLabs TTS adapter behavior, DTMF/keypad signaling, and
+	   telemetry.
 
 5) OpenClaw Integration Agent
 	a) Owns OpenClaw skills, plugin/service tool contracts, agent prompt injection, and
@@ -105,6 +108,18 @@ without inventing values:
 	a) ARI ExternalMedia RTP is the primary design candidate.
 	b) AudioSocket remains an alternative if it proves simpler for bidirectional PCM.
 
-4) Choose OpenClaw integration boundary
+4) Choose voice generation provider path
+	a) Gemini Live remains the first realtime speech-to-speech target.
+	b) ElevenLabs should be available as optional low-latency TTS, character voice, fallback
+	   speech, or static prompt pre-generation.
+
+5) Choose DTMF signaling mode
+	a) Prefer Asterisk/provider DTMF signaling through ARI and PJSIP, commonly RFC 4733.
+	b) Keep in-band dual-tone audio generation as a fallback for providers or call legs that
+	   cannot carry DTMF signaling reliably.
+	c) Decide how to redact PIN-like DTMF sequences from logs while preserving debugging
+	   evidence.
+
+6) Choose OpenClaw integration boundary
 	a) The likely first boundary is an agenti-call API plus OpenClaw tool/skill wrapper,
 	   rather than patching OpenClaw's unmerged Asterisk provider work.

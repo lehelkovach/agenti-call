@@ -146,8 +146,8 @@ changing orchestration state.
 	b) Asterisk should own SIP trunk registration, DID routing, ARI/Stasis call control, RTP
 	   media boundaries, and optional SIP device endpoints.
 	c) The voice bridge should own ARI sessions, ExternalMedia/AudioSocket handling,
-	   telephony audio conversion, VAD/barge-in, Gemini Live sessions, and call lifecycle
-	   events.
+	   telephony audio conversion, VAD/barge-in, Gemini Live sessions, optional
+	   ElevenLabs TTS, DTMF/keypad signaling, and call lifecycle events.
 	d) OpenClaw should own agent identity, prompts, tool calls, memory/context, and
 	   high-level call actions exposed through a robocall plugin/service.
 	e) The admin surface should own characters, scripts, decision trees, campaigns, contact
@@ -189,9 +189,13 @@ changing orchestration state.
 	c) Preserve the safe Asterisk direction: use Stunt Banana as a minimalist configuration
 	   reference, keep ARI private, and exclude caller-ID spoofing/DISA behavior.
 	d) Prepare for an OCI-hosted Asterisk + voice bridge stack that can make and receive
-	   calls through assigned SIP-provider numbers and route media to Gemini Live.
+	   calls through assigned SIP-provider numbers and route media to Gemini Live or
+	   ElevenLabs-backed speech generation where appropriate.
 	e) Prepare OpenClaw integration around explicit tools and skills for call control,
 	   scripts, decision trees, and compliance-aware robocalling workflows.
+	f) Support validated DTMF/keypad actions from structured agent or script output for IVR,
+	   conference bridge, extension, and PIN workflows without exposing arbitrary raw
+	   telephony commands.
 
 8) Subtask Progress Logging
 	a) Update `.AGENT/agent-action-log.md` when completing meaningful subtasks, not only at

@@ -9,7 +9,8 @@ Gemini Live as the first realtime voice model target.
 - **Telephony edge:** Asterisk on OCI, connected to a third-party SIP trunk/DID
   provider.
 - **Voice bridge:** A custom ARI/ExternalMedia service that connects Asterisk
-  call media to Gemini Live and OpenClaw tools.
+  call media to Gemini Live, optional ElevenLabs TTS, DTMF/keypad signaling, and
+  OpenClaw tools.
 - **Agent runtime:** OpenClaw Gateway plus a robocall/voice-agent skill and
   plugin/service API.
 - **Admin surface:** Web UI for characters, scripts, decision trees, campaigns,
@@ -34,6 +35,9 @@ numbers from the SIP provider.
 
 See [docs/stuntbanana-integration.md](docs/stuntbanana-integration.md) for the
 integration plan and required Asterisk changes.
+
+See [docs/voice-generation-and-dtmf.md](docs/voice-generation-and-dtmf.md) for
+the ElevenLabs voice-generation and DTMF/keypad dialing design.
 
 ## Agent orchestration
 
