@@ -99,6 +99,8 @@ without inventing values:
 1) Choose first runnable stack shape
 	a) Options include Docker Compose for local development, OCI-first Terraform/OpenTofu, or
 	   a hybrid with local app services and remote Asterisk.
+	b) The testing plan currently recommends starting with `mock-local`, then `asterisk-lab`,
+	   `oci-dev`, and explicitly gated `live-test`.
 
 2) Choose SIP provider target
 	a) Telnyx, Bandwidth, DIDLogic, VoIP.ms, or another provider must be selected before
@@ -123,3 +125,8 @@ without inventing values:
 6) Choose OpenClaw integration boundary
 	a) The likely first boundary is an agenti-call API plus OpenClaw tool/skill wrapper,
 	   rather than patching OpenClaw's unmerged Asterisk provider work.
+
+7) Choose first CI/test command set
+	a) Keep `.AGENT/tests/agent_architecture_smoke.py` as the current smoke test.
+	b) Add mock service tests before adding live SIP tests.
+	c) Add OpenClaw skill mock tests before allowing an agent to place live calls.

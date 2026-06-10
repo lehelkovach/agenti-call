@@ -39,6 +39,10 @@ integration plan and required Asterisk changes.
 See [docs/voice-generation-and-dtmf.md](docs/voice-generation-and-dtmf.md) for
 the ElevenLabs voice-generation and DTMF/keypad dialing design.
 
+See [docs/testing-and-dev-deployment.md](docs/testing-and-dev-deployment.md) for
+the current test status and the planned mock, Asterisk lab, OCI dev, live SIP,
+and OpenClaw skill-extension validation path.
+
 ## Agent orchestration
 
 This repo imports the `.AGENT/` operating surface from

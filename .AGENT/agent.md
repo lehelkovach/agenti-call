@@ -164,7 +164,9 @@ changing orchestration state.
 
 5) Current Repository State
 	a) The repo is currently documentation-first. Existing tracked project files include
-	   `README.md`, `docs/stuntbanana-integration.md`, and `.AGENT/`.
+	   `README.md`, `docs/stuntbanana-integration.md`,
+	   `docs/voice-generation-and-dtmf.md`, `docs/testing-and-dev-deployment.md`, and
+	   `.AGENT/`.
 	b) No application package manager, build system, Terraform root, Docker Compose stack, or
 	   runtime service code is configured yet.
 	c) Until implementation exists, use documentation review, `.AGENT` smoke tests,
@@ -196,6 +198,8 @@ changing orchestration state.
 	f) Support validated DTMF/keypad actions from structured agent or script output for IVR,
 	   conference bridge, extension, and PIN workflows without exposing arbitrary raw
 	   telephony commands.
+	g) Build testability in layers: mock-local first, then Asterisk lab, OCI dev, live SIP
+	   smoke tests, and OpenClaw skill-extension validation.
 
 8) Subtask Progress Logging
 	a) Update `.AGENT/agent-action-log.md` when completing meaningful subtasks, not only at

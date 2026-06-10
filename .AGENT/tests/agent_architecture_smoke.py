@@ -17,6 +17,7 @@ REQUIRED = [
     "README.md",
     "docs/stuntbanana-integration.md",
     "docs/voice-generation-and-dtmf.md",
+    "docs/testing-and-dev-deployment.md",
     ".AGENT/agent.md",
     ".AGENT/agent-action-log.md",
     ".AGENT/agent-run.md",
@@ -168,6 +169,7 @@ def main() -> int:
         "Subtask Progress Logging",
         "ElevenLabs",
         "DTMF",
+        "OpenClaw skill-extension validation",
     ]:
         assert_true(expected in agent_prompt, f"agent.md missing expected text: {expected}")
 
@@ -179,6 +181,7 @@ def main() -> int:
         "ELEVENLABS_DEFAULT_VOICE_ID",
         "OpenClaw Integration Agent",
         "DTMF",
+        "mock-local",
     ]:
         assert_true(expected in dev_notes, f"dev-notes.md missing expected text: {expected}")
 
@@ -192,6 +195,21 @@ def main() -> int:
         assert_true(
             expected in voice_doc,
             f"voice-generation-and-dtmf.md missing expected text: {expected}",
+        )
+
+    testing_doc = read(ROOT / "docs" / "testing-and-dev-deployment.md")
+    for expected in [
+        "Current state",
+        "mock-local",
+        "asterisk-lab",
+        "oci-dev",
+        "live-test",
+        "OpenClaw skill-extension testing",
+        "Live SIP trunk smoke tests",
+    ]:
+        assert_true(
+            expected in testing_doc,
+            f"testing-and-dev-deployment.md missing expected text: {expected}",
         )
 
     with tempfile.TemporaryDirectory(prefix="agenti-call-agent-smoke-") as tmp:

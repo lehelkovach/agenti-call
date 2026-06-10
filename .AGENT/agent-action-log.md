@@ -4,6 +4,34 @@ Append meaningful agent activity here in reverse chronological order. Keep entri
 and factual so future agents and maintainers can understand what changed, how it was
 verified, and what remains.
 
+## 2026-06-10 - Document testing and dev deployment plan
+
+1) Timestamp
+	a) 2026-06-10 18:07 UTC
+2) Agent
+	a) Cursor cloud coding agent
+3) Role
+	a) Master repo agent
+4) Branch
+	a) cursor/stuntbanana-asterisk-integration-7e1f
+5) Scope
+	a) Test strategy, dev deployment, OpenClaw skill-extension validation, README, docs,
+	   and `.AGENT/`
+6) Actions
+	a) Capturing the maintainer question about which tests exist now and how the project
+	   should be live-tested with an OpenClaw agent as a skill extension.
+	b) Added `docs/testing-and-dev-deployment.md` describing current test coverage, target
+	   validation layers, mock-local deployment, Asterisk lab tests, OCI dev tests, live SIP
+	   smoke tests, and OpenClaw skill-extension mock/live validation.
+	c) Linked the testing plan from README and updated `.AGENT/agent.md`, `.AGENT/dev-notes.md`,
+	   and smoke assertions so future agents preserve the test/deployment path.
+7) Verification
+	a) Ran `python3 .AGENT/tests/agent_architecture_smoke.py` and `git diff --check`;
+	   smoke test passed and refreshed `.AGENT/test-output/cursor-agent-smoke.md`.
+8) Follow-ups
+	a) Implement actual service tests and deployment scripts after the repository skeleton
+	   and runtime services exist.
+
 ## 2026-06-08 - Check for parallel agent branches to merge
 
 1) Timestamp
